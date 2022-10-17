@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+</head>
+
+<body>
+    <button id="btn">Click</button>
+    <script>
+        //Es recomendable crear variables dentro de alguna funcion
+        //Porque sino se van al scoope global de JS
+        //Para solucionar eso es crear una funcion que se llame a si misma
+        //A este patron se llama closures
+        //Un callback es una funcion que se ejecuta porque se la pasamos como metodo a otra funcion
+        //Una funcion como parametro
+        (function () {
+
+            document.getElementById('btn').addEventListener("click", function listener() {
+                console.log("Click");
+            });
+
+            setTimeout(function () {
+                console.log(helloWorld("Santiago"))
+            }, 500);
+
+        })();
+
+        function helloWorld(nombre){
+            function construct(){
+                return "Hello " + nombre;
+            }
+            return construct();
+        }
+
+    </script>
+</body>
+
+</html>

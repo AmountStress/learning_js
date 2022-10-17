@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetterSe</title>
+</head>
+
+<body>
+    <script>
+        let array1 = [1, 2, 3, 4];
+        let course = {
+            title: "JavaScript Course",
+            videos: 19,
+            tutorValue: "Uriel",
+            get tutor() {
+                return this.tutorValue.toUpperCase();
+            },
+            set tutor(tutor) {
+                if (tutor === "" || (typeof tutor === "undefined")) {
+                    return;
+                }
+                this.tutorValue = tutor;
+            }
+        };
+        course.tutor = "";
+        console.log(course.tutor);
+    </script>
+</body>
+
+</html>

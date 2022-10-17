@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+<body>
+    <script>
+        function Tutor(nombre, apellido) {
+            this.nombre = nombre;
+            this.saludar = function () {
+                console.log("Hola soy " + this.nombre);
+            }
+            if (typeof apellido !== "undefined") {
+                this.nombreCompleto = nombre + " " + apellido;
+            }
+        }
+        let uriel = new Tutor("Uriel", "Hernandez");
+        let jose = new Tutor("Jose");
+        Tutor.prototype.edad = 22;
+        Tutor.prototype.iniciarTutorial = function(){
+            console.log("Bienvenidos a este nuevo tutorial");
+        };
+       jose.iniciarTutorial();
+       console.log(uriel.edad);
+   
+    </script>
+</body>
+</html>
