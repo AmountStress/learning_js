@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example</title>
+</head>
+
+<body>
+
+
+    <form id="form">
+        <input type="email" placeholder="Correo" name="mails[]">
+    </form>
+    <button id="btn">Add more emails</button>
+
+    <script>
+        bindClose();
+        $("#btn").addEventListener("click", function () {
+            let input = document.createElement("input");
+            input.setAttribute("type", "email");
+            input.setAttribute("placeholder", "Correo");
+            input.setAttribute("name", "mails[]");
+            $("#form").appendChild(input);
+
+            myAlert("Added the new  element");
+        });
+
+        function bindClose() {
+            var elements = document.querySelectorAll(".close");
+            for (let i = elements.length - 1; i >= 0; i--) {
+                let el = elements[i];
+                el.addEventListener("click", function () {
+                    this.paretNode.style.display = "none";
+                });
+            }
+        }
+
+
+        function myAlert(msg) {
+            let div = document.createElement("div");
+            div.setAttribute("class", "alert");
+            div.innerHTML = msg;
+            let close = document.createElement("span");
+            close.style.float = "right";
+            close.innerHTML = "X";
+            close.setAttribute("class", "close");
+            div.appendChild(close);
+            $("body").insertBefore(div, $("body").firstChild);
+            bindClose();
+        }
+
+        function $(selector) {
+            return document.querySelector(selector);
+        }
+
+    </script>
+</body>
+
+</html>
